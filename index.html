@@ -38,7 +38,7 @@
 
   header{position:sticky;top:0;z-index:50;background:rgba(250,249,247,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;}
-  .logo{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--slate);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0;}
   .logo span{color:var(--copper);}
   nav{display:flex;gap:32px;font-size:14px;font-weight:500;}
   nav a:hover{color:var(--copper);}
@@ -123,8 +123,13 @@
   }
   .float-cta:hover{background:var(--navy-deep);}
 
-  @media (max-width:820px){
+  /* Le nom de zone peut etre plus long que "Azur" : le logo a besoin de plus de
+     place avant que nav doive disparaitre, sinon il passe sur plusieurs lignes et
+     sort du cadre de l'en-tete. */
+  @media (max-width:960px){
     nav{display:none;}
+  }
+  @media (max-width:820px){
     .hero h1{font-size:32px;}
     .grid-3{grid-template-columns:1fr;}
     .brands{flex-direction:column;}
