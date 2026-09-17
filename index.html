@@ -396,6 +396,14 @@
       <input id="tel" type="tel" placeholder="06 00 00 00 00">
       <label for="ville">Commune</label>
       <input id="ville" type="text" placeholder="Votre commune">
+      <label for="mur">Nature du mur (à l'emplacement du chauffe-eau)</label>
+      <select id="mur">
+        <option>Placo / plaque de plâtre</option>
+        <option>Brique</option>
+        <option>Parpaing</option>
+        <option>Béton</option>
+        <option>Je ne sais pas</option>
+      </select>
       <label for="profil">Vous êtes</label>
       <select id="profil">
         <option value="client">Un client, en attente d'un artisan sur ma zone</option>
@@ -441,12 +449,13 @@
     const nom = document.getElementById("nom").value || "(non renseigné)";
     const tel = document.getElementById("tel").value || "(non renseigné)";
     const ville = document.getElementById("ville").value || "(non renseignée)";
+    const mur = document.getElementById("mur").value;
     const profil = document.getElementById("profil").value;
     const msg = document.getElementById("msg").value || "(aucun message)";
     const sujet = encodeURIComponent("Zone Provence, PACA Chauffe-Eau Services");
     const corps = encodeURIComponent(
       "Zone : Provence\nProfil : " + profil + "\nNom : " + nom +
-      "\nTéléphone : " + tel + "\nCommune : " + ville + "\n\nMessage :\n" + msg
+      "\nTéléphone : " + tel + "\nCommune : " + ville + "\nNature du mur : " + mur + "\n\nMessage :\n" + msg
     );
     window.location.href = "mailto:contact@azur-chauffe-eau.fr?subject=" + sujet + "&body=" + corps;
     document.getElementById("envoi-note").hidden = false;
